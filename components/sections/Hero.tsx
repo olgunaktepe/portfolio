@@ -161,7 +161,7 @@ export function Hero() {
                   alt={brand.name}
                   width={80}
                   height={40}
-                  className="object-contain h-8 w-auto brightness-0 invert opacity-80 hover:opacity-100 transition-opacity"
+                  className="object-contain h-8 w-auto opacity-90 hover:opacity-100 transition-opacity"
                 />
               </motion.div>
             ))}
