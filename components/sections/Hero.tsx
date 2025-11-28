@@ -1,7 +1,7 @@
 'use client';
 
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, Clock, TrendingUp, Zap, DollarSign } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { Button } from '@/components/ui/Button';
@@ -26,6 +26,15 @@ const brandLogos = [
   { name: 'NBA', logo: '/logos/5bbc0e1f32507.jpg' },
   { name: 'Visa', logo: '/logos/hd-visa-payment-logo-png-7017516947777256ndfrewd52.png' },
   { name: 'Crypto.com', logo: '/logos/crypto-com-1.svg' },
+  { name: 'Gala Games', logo: '/logos/Gala_Games_Logo.png' },
+  { name: 'Thermo Fisher', logo: '/logos/thermo-fisher-scientific-laboratory-research-science-thermo-fisher-scientific-logo.jpg' },
+  { name: 'Medline', logo: '/logos/medline-dynacor-medline-industries-inc-surgery-hospital-others.jpg' },
+  { name: 'WellNow', logo: '/logos/563-5635057_wellnow-urgent-care-logo-hd-png-download.png' },
+  { name: 'WellStreet', logo: '/logos/wellstreet-1.png' },
+  { name: '24Slides', logo: '/logos/24slides.webp' },
+  { name: 'Lambda Biotech', logo: '/logos/Molecular_Designs_Lambda_Biotech_Logo.jpg' },
+  { name: 'SmartSource', logo: '/logos/png-clipart-logo-film-poster-brand-coupon-smartsource-interactive-group-blue-text-thumbnail.png' },
+  { name: 'Scientific Labs', logo: '/logos/SL_Horizontal_RGB_Logo.jpg' },
 ];
 
 export function Hero() {
@@ -99,28 +108,60 @@ export function Hero() {
           </AnimatePresence>
         </motion.div>
 
-        {/* Key Results - Clear & Impactful */}
+        {/* Results Bar - "8+ Years → Resulting In → Metrics" */}
         <motion.div
-          className="flex flex-wrap justify-center gap-6 md:gap-10 mb-10"
+          className="flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-8 mb-10 py-6 px-6 rounded-2xl bg-[var(--primary-800)]/60 backdrop-blur-sm border border-[var(--card-border)]"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
-          <div className="text-center">
-            <div className="text-3xl md:text-4xl font-bold gradient-text">65%</div>
-            <div className="text-xs text-[var(--text-muted)] uppercase tracking-wider">Lead Growth</div>
+          {/* Experience Statement */}
+          <div className="flex items-center gap-3 lg:border-r lg:border-[var(--card-border)] lg:pr-8">
+            <div className="p-2.5 rounded-xl bg-[var(--accent-500)]/20">
+              <Clock size={24} className="text-[var(--accent-500)]" />
+            </div>
+            <div className="text-left">
+              <div className="text-2xl md:text-3xl font-bold gradient-text">8+ Years</div>
+              <div className="text-xs text-[var(--text-muted)] uppercase tracking-wider">Marketing Experience</div>
+            </div>
           </div>
-          <div className="text-center">
-            <div className="text-3xl md:text-4xl font-bold gradient-text">55%</div>
-            <div className="text-xs text-[var(--text-muted)] uppercase tracking-wider">Sales Productivity</div>
+
+          {/* Divider Text */}
+          <div className="hidden lg:block text-[var(--text-muted)] text-sm uppercase tracking-widest">
+            Resulting In
           </div>
-          <div className="text-center">
-            <div className="text-3xl md:text-4xl font-bold gradient-text">8+</div>
-            <div className="text-xs text-[var(--text-muted)] uppercase tracking-wider">Years Experience</div>
-          </div>
-          <div className="text-center">
-            <div className="text-3xl md:text-4xl font-bold gradient-text">3</div>
-            <div className="text-xs text-[var(--text-muted)] uppercase tracking-wider">Industries</div>
+
+          {/* Results Metrics */}
+          <div className="flex flex-wrap justify-center gap-5 md:gap-6">
+            <div className="flex items-center gap-2.5">
+              <div className="p-2 rounded-lg bg-[var(--accent-500)]/20">
+                <TrendingUp size={18} className="text-[var(--accent-500)]" />
+              </div>
+              <div className="text-left">
+                <div className="text-xl md:text-2xl font-bold text-[var(--accent-500)]">+65%</div>
+                <div className="text-[10px] text-[var(--text-muted)] uppercase tracking-wider">Lead Growth</div>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-2.5">
+              <div className="p-2 rounded-lg bg-[var(--secondary-500)]/20">
+                <Zap size={18} className="text-[var(--secondary-400)]" />
+              </div>
+              <div className="text-left">
+                <div className="text-xl md:text-2xl font-bold text-[var(--secondary-400)]">+55%</div>
+                <div className="text-[10px] text-[var(--text-muted)] uppercase tracking-wider">Sales Productivity</div>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-2.5">
+              <div className="p-2 rounded-lg bg-green-500/20">
+                <DollarSign size={18} className="text-green-400" />
+              </div>
+              <div className="text-left">
+                <div className="text-xl md:text-2xl font-bold text-green-400">$2M+</div>
+                <div className="text-[10px] text-[var(--text-muted)] uppercase tracking-wider">Pipeline Influenced</div>
+              </div>
+            </div>
           </div>
         </motion.div>
 
@@ -149,19 +190,19 @@ export function Hero() {
           <p className="text-xs text-[var(--text-muted)] uppercase tracking-widest mb-4">
             Brands &amp; Companies I&apos;ve Worked With
           </p>
-          <div className="flex flex-wrap justify-center items-center gap-6 md:gap-10">
+          <div className="flex flex-wrap justify-center items-center gap-4 md:gap-6">
             {brandLogos.map((brand) => (
               <motion.div
                 key={brand.name}
-                className="px-4 py-3 rounded-lg bg-white/10 backdrop-blur-sm border border-[var(--card-border)] flex items-center justify-center"
-                whileHover={{ scale: 1.05, borderColor: 'var(--accent-500)' }}
+                className="px-4 py-2 rounded-lg bg-white shadow-sm flex items-center justify-center"
+                whileHover={{ scale: 1.05, boxShadow: '0 4px 12px rgba(0,212,255,0.3)' }}
               >
                 <Image
                   src={brand.logo}
                   alt={brand.name}
                   width={80}
-                  height={40}
-                  className="object-contain h-8 w-auto opacity-90 hover:opacity-100 transition-opacity"
+                  height={36}
+                  className="object-contain h-7 w-auto max-w-[80px]"
                 />
               </motion.div>
             ))}
