@@ -3,6 +3,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { Button } from '@/components/ui/Button';
 import { profile } from '@/data/profile';
 
@@ -12,14 +13,19 @@ const rotatingWords = [
   'strategic partnerships',
   'revenue operations',
   'AI-powered solutions',
+  'growth marketing',
+  'lead nurturing',
+  'brand strategy',
+  'data-driven campaigns',
+  'cross-functional leadership',
 ];
 
 const brandLogos = [
-  { name: 'UFC', abbr: 'UFC' },
-  { name: 'Formula 1', abbr: 'F1' },
-  { name: 'NBA', abbr: 'NBA' },
-  { name: 'Visa', abbr: 'VISA' },
-  { name: 'Crypto.com', abbr: 'CRO' },
+  { name: 'UFC', logo: '/logos/1200px-UFC_Logo.svg.png' },
+  { name: 'Formula 1', logo: '/logos/F1.svg.png' },
+  { name: 'NBA', logo: '/logos/5bbc0e1f32507.jpg' },
+  { name: 'Visa', logo: '/logos/hd-visa-payment-logo-png-7017516947777256ndfrewd52.png' },
+  { name: 'Crypto.com', logo: '/logos/crypto-com-1.svg' },
 ];
 
 export function Hero() {
@@ -141,18 +147,22 @@ export function Hero() {
           className="mb-8"
         >
           <p className="text-xs text-[var(--text-muted)] uppercase tracking-widest mb-4">
-            Brands I&apos;ve Worked With
+            Brands &amp; Companies I&apos;ve Worked With
           </p>
           <div className="flex flex-wrap justify-center items-center gap-6 md:gap-10">
             {brandLogos.map((brand) => (
               <motion.div
                 key={brand.name}
-                className="px-4 py-2 rounded-lg bg-[var(--primary-700)]/50 border border-[var(--card-border)]"
+                className="px-4 py-3 rounded-lg bg-white/10 backdrop-blur-sm border border-[var(--card-border)] flex items-center justify-center"
                 whileHover={{ scale: 1.05, borderColor: 'var(--accent-500)' }}
               >
-                <span className="text-lg md:text-xl font-bold text-[var(--text-secondary)]">
-                  {brand.abbr}
-                </span>
+                <Image
+                  src={brand.logo}
+                  alt={brand.name}
+                  width={80}
+                  height={40}
+                  className="object-contain h-8 w-auto brightness-0 invert opacity-80 hover:opacity-100 transition-opacity"
+                />
               </motion.div>
             ))}
           </div>
