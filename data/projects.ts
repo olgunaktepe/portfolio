@@ -64,6 +64,17 @@ export const projects: Project[] = [
     technologies: ['Growth Marketing', 'Partnership Marketing', 'SEO', 'Email Marketing', 'Social Media'],
     featured: true,
     industry: 'web3',
+    strategicContext: {
+      businessContext: 'Crypto.com was competing against established exchanges like Coinbase and Binance to capture mainstream crypto adoption. The company needed to differentiate through brand trust and mass-market appeal.',
+      strategicApproach: 'Identified sports and entertainment as the key bridge to mainstream audiences. Focused on high-visibility partnerships that would associate crypto with trusted, established brands rather than tech-first messaging.',
+      keyDecisions: [
+        'Prioritized sports partnerships (UFC, F1, NBA) over traditional fintech channels',
+        'Leveraged celebrity endorsements to build trust with skeptical mainstream audiences',
+        'Created integrated campaigns that drove both brand awareness and direct user acquisition',
+        'Built SEO and content strategy around education to reduce crypto adoption friction',
+      ],
+      lessonsLearned: 'Partnership marketing at scale requires tight coordination between brand, product, and legal teams. The most successful campaigns combined brand moments with clear conversion paths—awareness without activation wastes partnership value.',
+    },
   },
   {
     id: 'gala-games',
@@ -104,6 +115,17 @@ export const projects: Project[] = [
     technologies: ['Community Management', 'Discord', 'Web3 Marketing', 'Partnership Development'],
     featured: true,
     industry: 'web3',
+    strategicContext: {
+      businessContext: 'Web3 gaming was an emerging category with high skepticism from traditional gamers. Gala Games needed to build credibility and community before mainstream gaming adoption.',
+      strategicApproach: 'Community-first strategy—built engaged Discord community as the foundation for all marketing. Used community advocates to drive organic growth and partnerships to expand reach into new gaming segments.',
+      keyDecisions: [
+        'Invested heavily in community management before paid acquisition',
+        'Partnered with Polygon for technical credibility and ecosystem access',
+        'Targeted gaming influencers over crypto influencers to reach mainstream gamers',
+        'Created content that educated on Web3 benefits without crypto jargon',
+      ],
+      lessonsLearned: 'Community is the moat in Web3. The 100K+ Discord became our most valuable marketing asset—authentic community advocacy outperformed any paid campaign for conversion and retention.',
+    },
   },
   {
     id: 'molecular-designs',
@@ -162,6 +184,17 @@ export const projects: Project[] = [
     technologies: ['HubSpot', 'Marketing Automation', 'AI Development', 'CRM Optimization', 'LinkedIn Ads', 'Google Ads'],
     featured: true,
     industry: 'healthcare',
+    strategicContext: {
+      businessContext: 'Three recently merged healthcare companies with siloed operations, inconsistent branding, and no unified marketing infrastructure. Sales team was struggling with lead quality and manual processes.',
+      strategicApproach: 'Built unified marketing operations foundation first—consolidated CRM, standardized processes, then layered demand generation. Used AI/automation to solve sales friction points and prove marketing value through productivity gains.',
+      keyDecisions: [
+        'Prioritized CRM consolidation and sales enablement before demand gen campaigns',
+        'Developed custom AI tools (quote generator, lead scoring) to demonstrate marketing-sales alignment',
+        'Created brand architecture that allowed company-specific positioning under unified operations',
+        'Focused on enterprise partnerships (12 secured) over transactional marketing',
+      ],
+      lessonsLearned: 'In multi-company portfolios, operational excellence must precede campaign execution. The 55% sales productivity improvement created executive buy-in for larger marketing investments—proving operational value opens budget conversations.',
+    },
   },
   {
     id: 'streamline-scientific',

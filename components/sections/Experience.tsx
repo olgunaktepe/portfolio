@@ -2,7 +2,7 @@
 
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Briefcase, TrendingUp } from 'lucide-react';
+import { Briefcase, TrendingUp, Users } from 'lucide-react';
 import { Card } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
 import { experiences } from '@/data/experience';
@@ -96,6 +96,28 @@ export function Experience() {
                   <p className="text-[var(--text-secondary)] text-sm mb-4">
                     {exp.description}
                   </p>
+
+                  {/* Leadership */}
+                  {exp.leadership && (
+                    <div className="mb-4 p-3 rounded-lg bg-[var(--primary-700)]/30 border border-[var(--card-border)]">
+                      <div className="flex items-center gap-2 mb-2">
+                        <Users size={14} className="text-[var(--secondary-400)]" />
+                        <span className="text-xs font-medium text-[var(--secondary-400)] uppercase tracking-wider">
+                          Leadership
+                        </span>
+                      </div>
+                      {exp.leadership.teamSize && (
+                        <p className="text-sm text-[var(--text-secondary)] mb-1">
+                          {exp.leadership.teamSize}
+                        </p>
+                      )}
+                      {exp.leadership.crossFunctional && (
+                        <p className="text-xs text-[var(--text-muted)]">
+                          Cross-functional: {exp.leadership.crossFunctional.join(', ')}
+                        </p>
+                      )}
+                    </div>
+                  )}
 
                   {/* Metrics */}
                   <div className="flex flex-wrap gap-4 mb-4">

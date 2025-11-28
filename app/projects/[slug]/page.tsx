@@ -2,7 +2,7 @@
 
 import { useParams } from 'next/navigation';
 import { motion } from 'framer-motion';
-import { ArrowLeft, ExternalLink, FileText, Image as ImageIcon, Download, X } from 'lucide-react';
+import { ArrowLeft, ExternalLink, FileText, Image as ImageIcon, Download, X, Lightbulb, Target, CheckCircle, BookOpen } from 'lucide-react';
 import { useState } from 'react';
 import Image from 'next/image';
 import { Button } from '@/components/ui/Button';
@@ -129,6 +129,66 @@ export default function ProjectPage() {
               <p className="text-[var(--text-secondary)]">{project.solution}</p>
             </Card>
           </motion.div>
+
+          {/* Strategic Context - Director Level Insight */}
+          {project.strategicContext && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.35 }}
+              className="mb-12"
+            >
+              <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
+                <Lightbulb className="text-[var(--accent-500)]" size={24} />
+                Strategic Thinking
+              </h2>
+              <div className="grid md:grid-cols-2 gap-6">
+                <Card hover={false}>
+                  <div className="flex items-center gap-2 mb-3">
+                    <Target size={18} className="text-[var(--accent-500)]" />
+                    <h3 className="font-semibold">Business Context</h3>
+                  </div>
+                  <p className="text-[var(--text-secondary)] text-sm">
+                    {project.strategicContext.businessContext}
+                  </p>
+                </Card>
+                <Card hover={false}>
+                  <div className="flex items-center gap-2 mb-3">
+                    <Lightbulb size={18} className="text-[var(--secondary-400)]" />
+                    <h3 className="font-semibold">Strategic Approach</h3>
+                  </div>
+                  <p className="text-[var(--text-secondary)] text-sm">
+                    {project.strategicContext.strategicApproach}
+                  </p>
+                </Card>
+              </div>
+              <div className="grid md:grid-cols-2 gap-6 mt-6">
+                <Card hover={false}>
+                  <div className="flex items-center gap-2 mb-3">
+                    <CheckCircle size={18} className="text-green-400" />
+                    <h3 className="font-semibold">Key Strategic Decisions</h3>
+                  </div>
+                  <ul className="space-y-2">
+                    {project.strategicContext.keyDecisions.map((decision, i) => (
+                      <li key={i} className="text-[var(--text-secondary)] text-sm flex items-start gap-2">
+                        <span className="text-[var(--accent-500)] mt-1">•</span>
+                        {decision}
+                      </li>
+                    ))}
+                  </ul>
+                </Card>
+                <Card hover={false}>
+                  <div className="flex items-center gap-2 mb-3">
+                    <BookOpen size={18} className="text-[var(--accent-400)]" />
+                    <h3 className="font-semibold">Lessons Learned</h3>
+                  </div>
+                  <p className="text-[var(--text-secondary)] text-sm italic">
+                    &ldquo;{project.strategicContext.lessonsLearned}&rdquo;
+                  </p>
+                </Card>
+              </div>
+            </motion.div>
+          )}
 
           {/* Technologies */}
           <motion.div

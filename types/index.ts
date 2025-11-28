@@ -38,6 +38,11 @@ export interface Experience {
   achievements: string[];
   metrics: Metric[];
   industry: 'web3' | 'healthcare' | 'tech';
+  leadership?: {
+    teamSize?: string;
+    directReports?: number;
+    crossFunctional?: string[];
+  };
 }
 
 export interface Metric {
@@ -68,6 +73,12 @@ export interface Project {
   technologies: string[];
   featured: boolean;
   industry: 'web3' | 'healthcare' | 'tech';
+  strategicContext?: {
+    businessContext: string;
+    strategicApproach: string;
+    keyDecisions: string[];
+    lessonsLearned: string;
+  };
 }
 
 export interface Collateral {

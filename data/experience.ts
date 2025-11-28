@@ -25,6 +25,10 @@ export const experiences: Experience[] = [
       { value: 55, suffix: '%', label: 'Sales Productivity' },
     ],
     industry: 'healthcare',
+    leadership: {
+      teamSize: 'Marketing operations across 3 companies',
+      crossFunctional: ['Sales', 'Product', 'Executive Leadership', 'External Vendors'],
+    },
   },
   {
     id: 'crypto-com',
@@ -47,6 +51,10 @@ export const experiences: Experience[] = [
       { value: 50, suffix: '%', label: 'Traffic Increase' },
     ],
     industry: 'web3',
+    leadership: {
+      teamSize: 'Led growth marketing initiatives',
+      crossFunctional: ['Brand Marketing', 'Partnerships', 'Product', 'Legal', 'External Agencies'],
+    },
   },
   {
     id: 'gala-games',
@@ -68,6 +76,10 @@ export const experiences: Experience[] = [
       { value: 30, suffix: '%', label: 'Engagement Increase' },
     ],
     industry: 'web3',
+    leadership: {
+      teamSize: 'Community team of 5+ moderators',
+      crossFunctional: ['Game Development', 'Community', 'Partnerships', 'Content Creators'],
+    },
   },
   {
     id: 'all-in-sector',
@@ -86,5 +98,10 @@ export const experiences: Experience[] = [
       { value: 39, suffix: '%', label: 'Cost Savings' },
     ],
     industry: 'tech',
+    leadership: {
+      teamSize: 'Marketing team of 3',
+      directReports: 3,
+      crossFunctional: ['Sales', 'Operations', 'International Partners'],
+    },
   },
 ];
