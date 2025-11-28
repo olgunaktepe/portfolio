@@ -18,6 +18,14 @@ const rotatingWords = [
   'brand strategy',
   'data-driven campaigns',
   'cross-functional leadership',
+  'account-based marketing',
+  'CRM optimization',
+  'pipeline acceleration',
+  'conversion optimization',
+  'marketing analytics',
+  'customer acquisition',
+  'integrated campaigns',
+  'go-to-market strategy',
 ];
 
 const brandLogos = [
@@ -28,9 +36,12 @@ const brandLogos = [
   { name: 'Crypto.com', logo: '/logos/crypto-com-1.svg' },
   { name: 'Gala Games', logo: '/logos/Gala_Games_Logo.png' },
   { name: 'Thermo Fisher', logo: '/logos/thermo-fisher-scientific-laboratory-research-science-thermo-fisher-scientific-logo.jpg' },
+  { name: 'McKesson', logo: '/logos/images.png' },
   { name: 'Medline', logo: '/logos/medline-dynacor-medline-industries-inc-surgery-hospital-others.jpg' },
   { name: 'WellNow', logo: '/logos/563-5635057_wellnow-urgent-care-logo-hd-png-download.png' },
   { name: 'WellStreet', logo: '/logos/wellstreet-1.png' },
+  { name: 'Sketchdeck', logo: '/logos/logo_blue_small.png' },
+  { name: 'Molecular Designs', logo: '/logos/MD_Featured Image.webp' },
   { name: '24Slides', logo: '/logos/24slides.webp' },
   { name: 'Lambda Biotech', logo: '/logos/Molecular_Designs_Lambda_Biotech_Logo.jpg' },
   { name: 'SmartSource', logo: '/logos/png-clipart-logo-film-poster-brand-coupon-smartsource-interactive-group-blue-text-thumbnail.png' },
@@ -110,56 +121,56 @@ export function Hero() {
 
         {/* Results Bar - "8+ Years → Resulting In → Metrics" */}
         <motion.div
-          className="flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-8 mb-10 py-6 px-6 rounded-2xl bg-[var(--primary-800)]/60 backdrop-blur-sm border border-[var(--card-border)]"
+          className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6 lg:gap-8 mb-8 md:mb-10 py-4 md:py-6 px-4 md:px-6 rounded-xl md:rounded-2xl bg-[var(--primary-800)]/60 backdrop-blur-sm border border-[var(--card-border)]"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
           {/* Experience Statement */}
-          <div className="flex items-center gap-3 lg:border-r lg:border-[var(--card-border)] lg:pr-8">
-            <div className="p-2.5 rounded-xl bg-[var(--accent-500)]/20">
-              <Clock size={24} className="text-[var(--accent-500)]" />
+          <div className="flex items-center gap-3 md:border-r md:border-[var(--card-border)] md:pr-6 lg:pr-8">
+            <div className="p-2 md:p-2.5 rounded-xl bg-[var(--accent-500)]/20">
+              <Clock size={20} className="md:w-6 md:h-6 text-[var(--accent-500)]" />
             </div>
             <div className="text-left">
-              <div className="text-2xl md:text-3xl font-bold gradient-text">8+ Years</div>
-              <div className="text-xs text-[var(--text-muted)] uppercase tracking-wider">Marketing Experience</div>
+              <div className="text-xl md:text-2xl lg:text-3xl font-bold gradient-text">8+ Years</div>
+              <div className="text-[10px] md:text-xs text-[var(--text-muted)] uppercase tracking-wider">Marketing Experience</div>
             </div>
           </div>
 
           {/* Divider Text */}
-          <div className="hidden lg:block text-[var(--text-muted)] text-sm uppercase tracking-widest">
+          <div className="hidden md:block text-[var(--text-muted)] text-xs md:text-sm uppercase tracking-widest">
             Resulting In
           </div>
 
           {/* Results Metrics */}
-          <div className="flex flex-wrap justify-center gap-5 md:gap-6">
-            <div className="flex items-center gap-2.5">
-              <div className="p-2 rounded-lg bg-[var(--accent-500)]/20">
-                <TrendingUp size={18} className="text-[var(--accent-500)]" />
+          <div className="flex flex-wrap justify-center gap-4 md:gap-5 lg:gap-6">
+            <div className="flex items-center gap-2">
+              <div className="p-1.5 md:p-2 rounded-lg bg-[var(--accent-500)]/20">
+                <TrendingUp size={16} className="md:w-[18px] md:h-[18px] text-[var(--accent-500)]" />
               </div>
               <div className="text-left">
-                <div className="text-xl md:text-2xl font-bold text-[var(--accent-500)]">+65%</div>
-                <div className="text-[10px] text-[var(--text-muted)] uppercase tracking-wider">Lead Growth</div>
+                <div className="text-lg md:text-xl lg:text-2xl font-bold text-[var(--accent-500)]">+65%</div>
+                <div className="text-[9px] md:text-[10px] text-[var(--text-muted)] uppercase tracking-wider">Lead Growth</div>
               </div>
             </div>
 
-            <div className="flex items-center gap-2.5">
-              <div className="p-2 rounded-lg bg-[var(--secondary-500)]/20">
-                <Zap size={18} className="text-[var(--secondary-400)]" />
+            <div className="flex items-center gap-2">
+              <div className="p-1.5 md:p-2 rounded-lg bg-[var(--secondary-500)]/20">
+                <Zap size={16} className="md:w-[18px] md:h-[18px] text-[var(--secondary-400)]" />
               </div>
               <div className="text-left">
-                <div className="text-xl md:text-2xl font-bold text-[var(--secondary-400)]">+55%</div>
-                <div className="text-[10px] text-[var(--text-muted)] uppercase tracking-wider">Sales Productivity</div>
+                <div className="text-lg md:text-xl lg:text-2xl font-bold text-[var(--secondary-400)]">+55%</div>
+                <div className="text-[9px] md:text-[10px] text-[var(--text-muted)] uppercase tracking-wider">Sales Productivity</div>
               </div>
             </div>
 
-            <div className="flex items-center gap-2.5">
-              <div className="p-2 rounded-lg bg-green-500/20">
-                <DollarSign size={18} className="text-green-400" />
+            <div className="flex items-center gap-2">
+              <div className="p-1.5 md:p-2 rounded-lg bg-green-500/20">
+                <DollarSign size={16} className="md:w-[18px] md:h-[18px] text-green-400" />
               </div>
               <div className="text-left">
-                <div className="text-xl md:text-2xl font-bold text-green-400">$2M+</div>
-                <div className="text-[10px] text-[var(--text-muted)] uppercase tracking-wider">Pipeline Influenced</div>
+                <div className="text-lg md:text-xl lg:text-2xl font-bold text-green-400">$5M+</div>
+                <div className="text-[9px] md:text-[10px] text-[var(--text-muted)] uppercase tracking-wider">Pipeline Influenced</div>
               </div>
             </div>
           </div>
@@ -190,19 +201,20 @@ export function Hero() {
           <p className="text-xs text-[var(--text-muted)] uppercase tracking-widest mb-4">
             Brands &amp; Companies I&apos;ve Worked With
           </p>
-          <div className="flex flex-wrap justify-center items-center gap-4 md:gap-5">
+          <div className="flex flex-wrap justify-center items-center gap-3 md:gap-4 max-w-5xl mx-auto">
             {brandLogos.map((brand) => (
               <motion.div
                 key={brand.name}
-                className="px-5 py-3 rounded-xl bg-white shadow-md flex items-center justify-center min-w-[100px]"
+                className="px-3 py-2 md:px-4 md:py-3 rounded-lg bg-[#ffffff] shadow-md flex items-center justify-center"
+                style={{ backgroundColor: '#ffffff' }}
                 whileHover={{ scale: 1.05, boxShadow: '0 4px 12px rgba(0,212,255,0.3)' }}
               >
                 <Image
                   src={brand.logo}
                   alt={brand.name}
-                  width={120}
-                  height={50}
-                  className="object-contain h-10 md:h-12 w-auto max-w-[120px]"
+                  width={100}
+                  height={40}
+                  className="object-contain h-8 md:h-10 w-auto max-w-[80px] md:max-w-[100px]"
                 />
               </motion.div>
             ))}
