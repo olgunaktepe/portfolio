@@ -1,13 +1,37 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
+import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/Button';
-import { MetricCounter } from '@/components/ui/MetricCounter';
 import { profile } from '@/data/profile';
-import { featuredMetrics } from '@/data/skills';
+
+const rotatingWords = [
+  'demand generation',
+  'marketing automation',
+  'strategic partnerships',
+  'revenue operations',
+  'AI-powered solutions',
+];
+
+const brandLogos = [
+  { name: 'UFC', abbr: 'UFC' },
+  { name: 'Formula 1', abbr: 'F1' },
+  { name: 'NBA', abbr: 'NBA' },
+  { name: 'Visa', abbr: 'VISA' },
+  { name: 'Crypto.com', abbr: 'CRO' },
+];
 
 export function Hero() {
+  const [wordIndex, setWordIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setWordIndex((prev) => (prev + 1) % rotatingWords.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className="min-h-screen relative flex items-center justify-center overflow-hidden">
       {/* Animated Background */}
@@ -27,43 +51,76 @@ export function Hero() {
       />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        {/* Name & Title */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
+        {/* Name */}
+        <motion.h1
+          className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6"
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <motion.h1
-            className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            <span className="gradient-text">{profile.name}</span>
-          </motion.h1>
+          <span className="gradient-text">{profile.name}</span>
+        </motion.h1>
 
-          <motion.p
-            className="text-xl md:text-2xl text-[var(--text-secondary)] mb-8 max-w-3xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
-            {profile.title}
-          </motion.p>
+        {/* Title */}
+        <motion.p
+          className="text-xl md:text-2xl text-[var(--text-secondary)] mb-4"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
+          {profile.title}
+        </motion.p>
 
-          <motion.p
-            className="text-lg text-[var(--text-muted)] mb-12 max-w-2xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-          >
-            Driving B2B revenue growth through data-driven strategies and marketing technology optimization
-          </motion.p>
+        {/* Animated Rotating Text */}
+        <motion.div
+          className="text-lg md:text-xl mb-10 h-8"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+        >
+          <span className="text-[var(--text-muted)]">I drive growth through </span>
+          <AnimatePresence mode="wait">
+            <motion.span
+              key={wordIndex}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.5 }}
+              className="text-[var(--accent-500)] font-semibold inline-block"
+            >
+              {rotatingWords[wordIndex]}
+            </motion.span>
+          </AnimatePresence>
+        </motion.div>
+
+        {/* Key Results - Clear & Impactful */}
+        <motion.div
+          className="flex flex-wrap justify-center gap-6 md:gap-10 mb-10"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+        >
+          <div className="text-center">
+            <div className="text-3xl md:text-4xl font-bold gradient-text">65%</div>
+            <div className="text-xs text-[var(--text-muted)] uppercase tracking-wider">Lead Growth</div>
+          </div>
+          <div className="text-center">
+            <div className="text-3xl md:text-4xl font-bold gradient-text">55%</div>
+            <div className="text-xs text-[var(--text-muted)] uppercase tracking-wider">Sales Productivity</div>
+          </div>
+          <div className="text-center">
+            <div className="text-3xl md:text-4xl font-bold gradient-text">8+</div>
+            <div className="text-xs text-[var(--text-muted)] uppercase tracking-wider">Years Experience</div>
+          </div>
+          <div className="text-center">
+            <div className="text-3xl md:text-4xl font-bold gradient-text">3</div>
+            <div className="text-xs text-[var(--text-muted)] uppercase tracking-wider">Industries</div>
+          </div>
         </motion.div>
 
         {/* CTA Buttons */}
         <motion.div
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16"
+          className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
@@ -76,21 +133,29 @@ export function Hero() {
           </Button>
         </motion.div>
 
-        {/* Metrics */}
+        {/* Brand Logo Bar */}
         <motion.div
-          className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto"
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1 }}
+          className="mb-8"
         >
-          {featuredMetrics.map((metric, index) => (
-            <MetricCounter
-              key={index}
-              value={metric.value}
-              suffix={metric.suffix}
-              label={metric.label}
-            />
-          ))}
+          <p className="text-xs text-[var(--text-muted)] uppercase tracking-widest mb-4">
+            Brands I&apos;ve Worked With
+          </p>
+          <div className="flex flex-wrap justify-center items-center gap-6 md:gap-10">
+            {brandLogos.map((brand) => (
+              <motion.div
+                key={brand.name}
+                className="px-4 py-2 rounded-lg bg-[var(--primary-700)]/50 border border-[var(--card-border)]"
+                whileHover={{ scale: 1.05, borderColor: 'var(--accent-500)' }}
+              >
+                <span className="text-lg md:text-xl font-bold text-[var(--text-secondary)]">
+                  {brand.abbr}
+                </span>
+              </motion.div>
+            ))}
+          </div>
         </motion.div>
 
         {/* Scroll Indicator */}
