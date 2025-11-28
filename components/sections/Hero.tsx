@@ -190,19 +190,19 @@ export function Hero() {
           <p className="text-xs text-[var(--text-muted)] uppercase tracking-widest mb-4">
             Brands &amp; Companies I&apos;ve Worked With
           </p>
-          <div className="flex flex-wrap justify-center items-center gap-4 md:gap-6">
+          <div className="flex flex-wrap justify-center items-center gap-4 md:gap-5">
             {brandLogos.map((brand) => (
               <motion.div
                 key={brand.name}
-                className="px-4 py-2 rounded-lg bg-white shadow-sm flex items-center justify-center"
+                className="px-5 py-3 rounded-xl bg-white shadow-md flex items-center justify-center min-w-[100px]"
                 whileHover={{ scale: 1.05, boxShadow: '0 4px 12px rgba(0,212,255,0.3)' }}
               >
                 <Image
                   src={brand.logo}
                   alt={brand.name}
-                  width={80}
-                  height={36}
-                  className="object-contain h-7 w-auto max-w-[80px]"
+                  width={120}
+                  height={50}
+                  className="object-contain h-10 md:h-12 w-auto max-w-[120px]"
                 />
               </motion.div>
             ))}
