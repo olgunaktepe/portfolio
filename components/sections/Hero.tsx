@@ -31,20 +31,17 @@ const rotatingWords = [
 const brandLogos = [
   { name: 'UFC', logo: '/logos/1200px-UFC_Logo.svg.png' },
   { name: 'Formula 1', logo: '/logos/F1.svg.png' },
-  { name: 'NBA', logo: '/logos/5bbc0e1f32507.jpg' },
-  { name: 'Visa', logo: '/logos/hd-visa-payment-logo-png-7017516947777256ndfrewd52.png' },
+  { name: 'NBA', logo: '/logos/nba-logo-on-transparent-background-free-vector.jpg' },
+  { name: 'Visa', logo: '/logos/Visa_Inc._logo.svg' },
   { name: 'Crypto.com', logo: '/logos/crypto-com-1.svg' },
   { name: 'Gala Games', logo: '/logos/Gala_Games_Logo.png' },
-  { name: 'Thermo Fisher', logo: '/logos/thermo-fisher-scientific-laboratory-research-science-thermo-fisher-scientific-logo.jpg' },
-  { name: 'McKesson', logo: '/logos/images.png' },
-  { name: 'Medline', logo: '/logos/medline-dynacor-medline-industries-inc-surgery-hospital-others.jpg' },
-  { name: 'WellNow', logo: '/logos/563-5635057_wellnow-urgent-care-logo-hd-png-download.png' },
-  { name: 'WellStreet', logo: '/logos/wellstreet-1.png' },
+  { name: 'Thermo Fisher', logo: '/logos/thermo-fisher-scientific.webp' },
+  { name: 'McKesson', logo: '/logos/mckesson.jpg' },
+  { name: 'Medline', logo: '/logos/Mednews_logo_Medline.avif' },
   { name: 'Sketchdeck', logo: '/logos/logo_blue_small.png' },
   { name: 'Molecular Designs', logo: '/logos/MD_Featured Image.webp' },
   { name: '24Slides', logo: '/logos/24slides.webp' },
   { name: 'Lambda Biotech', logo: '/logos/Molecular_Designs_Lambda_Biotech_Logo.jpg' },
-  { name: 'SmartSource', logo: '/logos/png-clipart-logo-film-poster-brand-coupon-smartsource-interactive-group-blue-text-thumbnail.png' },
   { name: 'Scientific Labs', logo: '/logos/SL_Horizontal_RGB_Logo.jpg' },
 ];
 
@@ -212,9 +209,9 @@ export function Hero() {
                 <Image
                   src={brand.logo}
                   alt={brand.name}
-                  width={100}
-                  height={40}
-                  className="object-contain h-8 md:h-10 w-auto max-w-[80px] md:max-w-[100px]"
+                  width={140}
+                  height={56}
+                  className="object-contain h-12 md:h-14 w-auto max-w-[120px] md:max-w-[140px]"
                 />
               </motion.div>
             ))}
