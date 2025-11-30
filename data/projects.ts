@@ -15,7 +15,7 @@ export const projects: Project[] = [
       { value: 65, suffix: '%', label: 'Lead Generation Increase' },
       { value: 25, suffix: '%', label: 'Customer Acquisition Increase' },
       { value: 55, suffix: '%', label: 'Sales Productivity Improvement' },
-      { value: 12, suffix: '', label: 'Enterprise Partnerships Secured' },
+      { value: 35, suffix: '%', label: 'Deal Closure Rate Increase' },
     ],
     collateral: [
       {
