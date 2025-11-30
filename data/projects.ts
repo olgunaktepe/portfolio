@@ -59,15 +59,16 @@ export const projects: Project[] = [
     featured: true,
     industry: 'healthcare',
     strategicContext: {
-      businessContext: 'Three recently merged healthcare companies with siloed operations, inconsistent branding, and no unified marketing infrastructure. Sales team was struggling with lead quality and manual processes.',
-      strategicApproach: 'Built unified marketing operations foundation first, consolidated CRM, standardized processes, then layered demand generation. Used AI/automation to solve sales friction points and prove marketing value through productivity gains.',
+      businessContext: 'Three recently merged healthcare companies with siloed operations, inconsistent branding, and no unified marketing infrastructure. Target market spans reference labs, hospital laboratories, and physician office labs, requiring tailored messaging for C-suite executives and lab managers across diverse clinical environments.',
+      strategicApproach: 'Built unified marketing operations foundation first, consolidated CRM, standardized processes, then layered demand generation. Developed persona-based campaigns targeting technical buyers (lab directors, quality managers) and economic buyers (CFOs, practice administrators) with differentiated value propositions for diagnostic automation and workflow solutions.',
       keyDecisions: [
         'Prioritized CRM consolidation and sales enablement before demand gen campaigns',
         'Developed custom AI tools (quote generator, lead scoring) to demonstrate marketing-sales alignment',
         'Created brand architecture that allowed company-specific positioning under unified operations',
-        'Focused on enterprise partnerships (12 secured) over transactional marketing',
+        'Segmented outreach by lab type (reference, hospital, POL) with tailored content addressing unique pain points',
+        'Built thought leadership program positioning the company as diagnostic workflow experts rather than product vendors',
       ],
-      lessonsLearned: 'In multi-company portfolios, operational excellence must precede campaign execution. The 55% sales productivity improvement created executive buy-in for larger marketing investments, proving operational value opens budget conversations.',
+      lessonsLearned: 'In multi-company portfolios, operational excellence must precede campaign execution. The 55% sales productivity improvement created executive buy-in for larger marketing investments, proving operational value opens budget conversations. Complex B2B healthcare sales require balancing technical credibility with business case messaging.',
     },
   },
   {
@@ -77,14 +78,14 @@ export const projects: Project[] = [
     title: 'Urgent Care Market Expansion',
     role: 'Marketing Lead',
     period: 'Oct 2023 - Present',
-    description: 'Led market expansion targeting urgent care networks, creating comprehensive thought leadership content and sales collateral.',
-    challenge: 'Penetrate the urgent care market with complex PCR diagnostic solutions against established competitors.',
-    solution: 'Developed targeted content strategy including whitepapers, case studies, and LinkedIn campaigns for healthcare decision-makers.',
+    description: 'Led market expansion targeting urgent care networks nationwide, creating comprehensive thought leadership content and sales collateral that secured enterprise-level clients.',
+    challenge: 'Penetrate the urgent care market with complex PCR diagnostic solutions against established competitors in a highly fragmented industry.',
+    solution: 'Developed targeted content strategy including whitepapers, case studies, and LinkedIn campaigns for healthcare decision-makers at enterprise urgent care networks.',
     results: [
-      { value: 150, suffix: '+', label: 'Urgent Care Locations Targeted' },
-      { value: 12, suffix: '', label: 'Enterprise Partnerships' },
+      { value: 150, suffix: '+', label: 'Location Enterprise Deal Closed' },
       { value: 28, suffix: '%', label: 'Email Open Rate' },
       { value: 35, suffix: '%', label: 'Conversion Lift' },
+      { value: 3, suffix: 'x', label: 'Pipeline Growth' },
     ],
     collateral: [
       {
@@ -136,9 +137,20 @@ export const projects: Project[] = [
         filename: 'linkedin-square-1200x1200-3.png',
       },
     ],
-    technologies: ['Content Marketing', 'LinkedIn Ads', 'Whitepaper Development', 'B2B Marketing'],
+    technologies: ['Content Marketing', 'LinkedIn Ads', 'Whitepaper Development', 'B2B Marketing', 'ABM'],
     featured: true,
     industry: 'healthcare',
+    strategicContext: {
+      businessContext: 'The urgent care market is highly fragmented with thousands of independent clinics and dozens of large multi-location networks. Enterprise deals with national chains represent significant revenue opportunities but require longer sales cycles and executive-level engagement.',
+      strategicApproach: 'Focused on quality over quantity, targeting the largest urgent care networks in the country rather than individual clinics. Built thought leadership content addressing operational challenges specific to multi-location networks, positioning in-house PCR as a competitive differentiator for patient experience and revenue optimization.',
+      keyDecisions: [
+        'Prioritized enterprise accounts over transactional sales to maximize deal value',
+        'Created ROI-focused content speaking to C-suite concerns (revenue per visit, patient throughput, competitive positioning)',
+        'Developed case studies demonstrating success at scale to overcome enterprise buyer skepticism',
+        'Used LinkedIn ABM campaigns to target specific decision-makers at top 50 urgent care networks',
+      ],
+      lessonsLearned: 'Enterprise healthcare sales require patience and multi-threaded engagement. Closing a 150+ location national account proved that focused ABM on fewer, larger targets outperforms broad outreach. Content that speaks to operational scale challenges resonates more than product features with enterprise buyers.',
+    },
   },
   {
     id: 'lamda-biotech',
