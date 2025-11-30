@@ -25,7 +25,7 @@ export function Experience() {
             Work <span className="gradient-text">Experience</span>
           </h2>
           <p className="text-[var(--text-secondary)] max-w-2xl mx-auto">
-            8+ years of driving growth across Web3 and healthcare industries
+            8+ years leading full-funnel marketing, from strategy to execution
           </p>
         </motion.div>
 
