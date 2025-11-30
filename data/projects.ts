@@ -141,15 +141,15 @@ export const projects: Project[] = [
     featured: true,
     industry: 'healthcare',
     strategicContext: {
-      businessContext: 'The urgent care market is highly fragmented with thousands of independent clinics and dozens of large multi-location networks. Enterprise deals with national chains represent significant revenue opportunities but require longer sales cycles and executive-level engagement.',
-      strategicApproach: 'Focused on quality over quantity, targeting the largest urgent care networks in the country rather than individual clinics. Built thought leadership content addressing operational challenges specific to multi-location networks, positioning in-house PCR as a competitive differentiator for patient experience and revenue optimization.',
+      businessContext: 'The urgent care market is dominated by large multi-location networks where executive leadership makes centralized purchasing decisions. These networks were sending samples to third-party reference labs, creating delays in patient care, reducing visit revenue, and limiting competitive differentiation.',
+      strategicApproach: 'Targeted C-suite executives at the largest urgent care networks nationwide with a clear value proposition: in-house PCR labs deliver faster results, improved patient experience, reduced send-out costs, and operational control. Messaging emphasized the business case for bringing diagnostics in-house rather than technical product specifications.',
       keyDecisions: [
-        'Prioritized enterprise accounts over transactional sales to maximize deal value',
-        'Created ROI-focused content speaking to C-suite concerns (revenue per visit, patient throughput, competitive positioning)',
-        'Developed case studies demonstrating success at scale to overcome enterprise buyer skepticism',
-        'Used LinkedIn ABM campaigns to target specific decision-makers at top 50 urgent care networks',
+        'Focused exclusively on enterprise networks rather than independent clinics',
+        'Built content around three pillars: patient experience improvement, cost reduction vs. send-out labs, and operational efficiency gains',
+        'Targeted CEOs, COOs, and regional VPs at national urgent care chains',
+        'Developed ROI calculators and case studies showing real-world results at scale',
       ],
-      lessonsLearned: 'Enterprise healthcare sales require patience and multi-threaded engagement. Closing a 150+ location national account proved that focused ABM on fewer, larger targets outperforms broad outreach. Content that speaks to operational scale challenges resonates more than product features with enterprise buyers.',
+      lessonsLearned: 'Secured partnerships with major national networks including WellNow, WellStreet, and NextCare. Enterprise healthcare sales require executive-level messaging focused on business outcomes, not clinical features. The 150+ location deal validated that quality targeting of decision-makers outperforms volume-based outreach.',
     },
   },
   {
