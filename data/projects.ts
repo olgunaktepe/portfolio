@@ -159,11 +159,13 @@ export const projects: Project[] = [
     title: 'Post-Acquisition Rebrand & eCommerce Launch',
     role: 'Marketing Lead',
     period: 'Oct 2023 - Present',
-    description: 'Directed complete rebrand and website redesign post-acquisition, launching new eCommerce platform for life science products.',
-    challenge: 'Modernize brand identity and launch online sales channel for research reagents in competitive B2B market.',
-    solution: 'Complete brand refresh with new visual identity, product catalog development, and eCommerce platform implementation.',
+    description: 'Directed complete rebrand and website redesign post-acquisition, launching new eCommerce platform targeting academic research labs with a B2C-style marketing approach.',
+    challenge: 'Adapt marketing strategy for a newly acquired company targeting academic researchers, a completely different segment requiring high-volume, low-touch sales motions.',
+    solution: 'Built modern eCommerce platform, established distributor partnerships, launched conference presence, and implemented free sample program to drive trial and repeat purchases.',
     results: [
-      { value: 25, suffix: '%', label: 'Online Product Inquiries Increase' },
+      { value: 25, suffix: '%', label: 'Online Inquiries Increase' },
+      { value: 500, suffix: '+', label: 'Free Samples Distributed' },
+      { value: 15, suffix: '+', label: 'Distributor Partnerships' },
     ],
     collateral: [
       {
@@ -215,9 +217,21 @@ export const projects: Project[] = [
         filename: 'MD_Lamda Flyer_qPCR and cDNA_20241031.pdf',
       },
     ],
-    technologies: ['Brand Strategy', 'eCommerce', 'Product Marketing', 'Catalog Development'],
+    technologies: ['Brand Strategy', 'eCommerce', 'Product Marketing', 'Catalog Development', 'Conference Marketing'],
     featured: true,
     industry: 'healthcare',
+    strategicContext: {
+      businessContext: 'Lamda Biotech was a new acquisition targeting academic research labs, a segment completely different from our existing B2B healthcare focus. Academic labs operate more like B2C customers: hundreds of individual labs per university, smaller transaction sizes, higher purchase frequency, and researchers who shop and compare products online.',
+      strategicApproach: 'Shifted from enterprise B2B playbook to B2C-style marketing focused on discoverability, credibility, and low-friction purchasing. Built a modern eCommerce experience, established distributor network for broader reach, and launched free sample program to drive product trial among researchers.',
+      keyDecisions: [
+        'Prioritized eCommerce UX and SEO over direct sales outreach',
+        'Launched free sample program to reduce trial friction for new customers',
+        'Built distributor partnerships to expand reach across academic purchasing channels',
+        'Invested in conference presence to build brand credibility in academic community',
+        'Created product-focused content optimized for researchers comparing reagent options',
+      ],
+      lessonsLearned: 'B2C marketing principles apply when selling to fragmented markets with many small buyers. Academic researchers behave like consumers: they search, compare, request samples, and make quick decisions. The free sample program became a major customer acquisition channel, proving that reducing friction matters more than traditional sales touch in high-volume, low-ACV markets.',
+    },
   },
   {
     id: 'crypto-com',
