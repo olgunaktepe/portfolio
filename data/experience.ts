@@ -8,7 +8,7 @@ export const experiences: Experience[] = [
     location: 'Huntsville, AL',
     startDate: '2023-10',
     endDate: 'Present',
-    description: 'Drive marketing strategy and revenue growth across a 3-company healthcare portfolio. Define go-to-market positioning, build demand generation programs, and lead strategic planning initiatives for hospital laboratories, reference labs, and life science markets.',
+    description: 'Own end-to-end marketing strategy, planning, and execution across a 3-company healthcare portfolio serving hospital laboratories, reference labs, and life science markets.',
     achievements: [
       'Increased lead generation by 65% through targeted campaigns',
       'Boosted customer acquisition by 25% with optimized funnels',
@@ -26,8 +26,8 @@ export const experiences: Experience[] = [
     ],
     industry: 'healthcare',
     leadership: {
-      teamSize: 'Strategic marketing leadership across 3 companies',
-      crossFunctional: ['C-Suite', 'Sales', 'Product', 'External Vendors'],
+      teamSize: 'Marketing strategy, planning & operations across 3 companies',
+      crossFunctional: ['Sales', 'Product', 'Executive Leadership', 'External Vendors'],
     },
   },
   {

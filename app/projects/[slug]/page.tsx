@@ -235,11 +235,6 @@ export default function ProjectPage() {
                       </div>
                       <div className="p-4">
                         <h3 className="font-medium mb-2 line-clamp-2">{item.title}</h3>
-                        {item.description && (
-                          <p className="text-sm text-[var(--text-secondary)] mb-3">
-                            {item.description}
-                          </p>
-                        )}
                         <div className="flex items-center gap-2">
                           <button
                             onClick={() => setSelectedPdf(getPdfPath(item.filename))}
@@ -273,11 +268,6 @@ export default function ProjectPage() {
                       </div>
                       <div className="p-4">
                         <h3 className="font-medium mb-2">{item.title}</h3>
-                        {item.description && (
-                          <p className="text-sm text-[var(--text-secondary)] mb-3">
-                            {item.description}
-                          </p>
-                        )}
                         <div className="flex items-center gap-1 text-sm text-[var(--text-muted)]">
                           <ImageIcon size={14} />
                           <span>Image Asset</span>
@@ -296,11 +286,6 @@ export default function ProjectPage() {
                       </div>
                       <div className="p-4">
                         <h3 className="font-medium mb-2">{item.title}</h3>
-                        {item.description && (
-                          <p className="text-sm text-[var(--text-secondary)] mb-3">
-                            {item.description}
-                          </p>
-                        )}
                         <a
                           href={item.url}
                           target="_blank"
