@@ -1,0 +1,116 @@
+'use client';
+
+import { motion, useInView } from 'framer-motion';
+import { useRef } from 'react';
+import { ArrowRight } from 'lucide-react';
+
+const caseStudies = [
+  {
+    id: 'molecular-designs',
+    company: 'Molecular Designs',
+    title: 'Healthcare RevOps Transformation',
+    description: 'Built revenue operations infrastructure from scratch across a 3-company healthcare portfolio.',
+    metrics: [
+      { value: '65%', label: 'Lead Growth' },
+      { value: '55%', label: 'Productivity' },
+      { value: '25%', label: 'Acquisition' },
+    ],
+    tags: ['HubSpot Enterprise', 'AI Automation', 'ABM'],
+  },
+  {
+    id: 'crypto-com',
+    company: 'Crypto.com',
+    title: 'Global Partnership Marketing',
+    description: 'Developed enterprise partnership marketing strategies with UFC, NBA, and Formula 1.',
+    metrics: [
+      { value: '30%', label: 'User Acquisition' },
+      { value: '400K+', label: 'Social Followers' },
+      { value: '50%', label: 'Traffic Increase' },
+    ],
+    tags: ['Partnership Marketing', 'Paid Media', 'Global Campaigns'],
+  },
+];
+
+export function CaseStudyGrid() {
+  const ref = useRef<HTMLElement>(null);
+  const isInView = useInView(ref, { once: true, margin: '-100px' });
+
+  return (
+    <section
+      id="work"
+      ref={ref}
+      className="v3-section v3-section-cream"
+    >
+      <div className="max-w-7xl mx-auto">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+          className="mb-16"
+        >
+          <h2 className="v3-heading-lg text-[var(--v3-navy-900)]">
+            CASE STUDIES
+          </h2>
+        </motion.div>
+
+        {/* Grid */}
+        <div className="grid md:grid-cols-2 gap-8">
+          {caseStudies.map((study, i) => (
+            <motion.div
+              key={study.id}
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, delay: 0.2 + i * 0.15 }}
+              className="v3-case-card group"
+            >
+              {/* Company badge */}
+              <div className="text-sm text-[var(--v3-burgundy-light)] font-semibold uppercase tracking-wider mb-2">
+                {study.company}
+              </div>
+
+              {/* Title */}
+              <h3 className="text-2xl font-bold text-[var(--v3-text-primary)] mb-4">
+                {study.title}
+              </h3>
+
+              {/* Description */}
+              <p className="text-[var(--v3-text-secondary)] mb-6 leading-relaxed">
+                {study.description}
+              </p>
+
+              {/* Metrics */}
+              <div className="grid grid-cols-3 gap-4 mb-6 pb-6 border-b border-[var(--v3-navy-700)]">
+                {study.metrics.map((metric) => (
+                  <div key={metric.label} className="text-center">
+                    <div className="text-2xl font-bold text-[var(--v3-cream)]">
+                      {metric.value}
+                    </div>
+                    <div className="text-xs text-[var(--v3-text-muted)] uppercase tracking-wider">
+                      {metric.label}
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Tags */}
+              <div className="flex flex-wrap gap-2 mb-6">
+                {study.tags.map((tag) => (
+                  <span key={tag} className="v3-tag">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+
+              {/* CTA */}
+              <div className="flex items-center gap-2 text-[var(--v3-cream)] font-semibold group-hover:gap-3 transition-all">
+                <span>View Details</span>
+                <ArrowRight size={18} />
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}

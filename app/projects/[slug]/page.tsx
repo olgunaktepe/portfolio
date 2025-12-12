@@ -3,12 +3,8 @@
 import { useParams } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { ArrowLeft, ExternalLink, FileText, Image as ImageIcon, Download, X, Lightbulb, Target, CheckCircle, BookOpen } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { Button } from '@/components/ui/Button';
-import { Card } from '@/components/ui/Card';
-import { Badge } from '@/components/ui/Badge';
-import { MetricCounter } from '@/components/ui/MetricCounter';
 import { projects } from '@/data/projects';
 
 export default function ProjectPage() {
@@ -19,23 +15,25 @@ export default function ProjectPage() {
 
   if (!project) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
+      <div className="min-h-screen flex items-center justify-center bg-[var(--v3-navy-900)]">
         <div className="text-center">
-          <h1 className="text-4xl font-bold mb-4">Project Not Found</h1>
-          <Button href="/#projects">Back to Projects</Button>
+          <h1 className="text-4xl font-bold mb-4 text-[var(--v3-text-primary)]">Project Not Found</h1>
+          <a href="/#work" className="v3-btn-primary inline-flex items-center gap-2">
+            Back to Projects
+          </a>
         </div>
       </div>
     );
   }
 
-  const getIndustryColor = (industry: string) => {
+  const getIndustryGradient = (industry: string) => {
     switch (industry) {
       case 'web3':
-        return 'from-[var(--accent-500)] to-[#00a8cc]';
+        return 'from-[var(--v3-burgundy)] to-[var(--v3-burgundy-light)]';
       case 'healthcare':
-        return 'from-[var(--secondary-500)] to-[#ec4899]';
+        return 'from-[var(--v3-navy-700)] to-[var(--v3-burgundy)]';
       default:
-        return 'from-[var(--primary-500)] to-[var(--primary-700)]';
+        return 'from-[var(--v3-navy-800)] to-[var(--v3-navy-700)]';
     }
   };
 
@@ -51,7 +49,7 @@ export default function ProjectPage() {
 
   return (
     <>
-      <section className="pt-24 pb-16">
+      <section className="pt-24 pb-16 bg-[var(--v3-navy-900)] min-h-screen">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Back Button */}
           <motion.div
@@ -59,14 +57,13 @@ export default function ProjectPage() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <Button
-              href="/#projects"
-              variant="ghost"
-              className="mb-8"
+            <a
+              href="/#work"
+              className="inline-flex items-center gap-2 text-[var(--v3-text-secondary)] hover:text-[var(--v3-cream)] transition-colors mb-8"
             >
-              <ArrowLeft size={18} className="mr-2" />
+              <ArrowLeft size={18} />
               Back to Projects
-            </Button>
+            </a>
           </motion.div>
 
           {/* Header */}
@@ -74,13 +71,13 @@ export default function ProjectPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className={`rounded-2xl p-8 md:p-12 mb-12 bg-gradient-to-r ${getIndustryColor(
+            className={`rounded-2xl p-8 md:p-12 mb-12 bg-gradient-to-r ${getIndustryGradient(
               project.industry
             )}`}
           >
-            <Badge variant="default" className="bg-white/20 text-white mb-4">
+            <span className="inline-block px-3 py-1 rounded-full bg-white/20 text-white text-sm font-medium mb-4">
               {project.industry === 'web3' ? 'Web3' : 'Healthcare'}
-            </Badge>
+            </span>
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
               {project.company}
             </h1>
@@ -96,14 +93,14 @@ export default function ProjectPage() {
             className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12"
           >
             {project.results.map((result, index) => (
-              <Card key={index} hover={false}>
-                <MetricCounter
-                  value={result.value}
-                  suffix={result.suffix}
-                  label={result.label}
-                  duration={1.5}
-                />
-              </Card>
+              <div key={index} className="v3-card p-6 text-center">
+                <div className="text-3xl font-bold text-[var(--v3-cream)] mb-1">
+                  {result.value}{result.suffix}
+                </div>
+                <div className="text-sm text-[var(--v3-text-muted)] uppercase tracking-wider">
+                  {result.label}
+                </div>
+              </div>
             ))}
           </motion.div>
 
@@ -114,20 +111,20 @@ export default function ProjectPage() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="grid md:grid-cols-2 gap-8 mb-12"
           >
-            <Card hover={false}>
-              <h2 className="text-xl font-semibold mb-4 flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-[var(--accent-500)]" />
+            <div className="v3-card p-6">
+              <h2 className="text-xl font-semibold mb-4 flex items-center gap-2 text-[var(--v3-text-primary)]">
+                <span className="w-2 h-2 rounded-full bg-[var(--v3-burgundy)]" />
                 Challenge
               </h2>
-              <p className="text-[var(--text-secondary)]">{project.challenge}</p>
-            </Card>
-            <Card hover={false}>
-              <h2 className="text-xl font-semibold mb-4 flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-[var(--secondary-500)]" />
+              <p className="text-[var(--v3-text-secondary)]">{project.challenge}</p>
+            </div>
+            <div className="v3-card p-6">
+              <h2 className="text-xl font-semibold mb-4 flex items-center gap-2 text-[var(--v3-text-primary)]">
+                <span className="w-2 h-2 rounded-full bg-[var(--v3-cream)]" />
                 Solution
               </h2>
-              <p className="text-[var(--text-secondary)]">{project.solution}</p>
-            </Card>
+              <p className="text-[var(--v3-text-secondary)]">{project.solution}</p>
+            </div>
           </motion.div>
 
           {/* Strategic Context - Director Level Insight */}
@@ -138,54 +135,54 @@ export default function ProjectPage() {
               transition={{ duration: 0.6, delay: 0.35 }}
               className="mb-12"
             >
-              <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
-                <Lightbulb className="text-[var(--accent-500)]" size={24} />
+              <h2 className="text-2xl font-bold mb-6 flex items-center gap-3 text-[var(--v3-text-primary)]">
+                <Lightbulb className="text-[var(--v3-cream)]" size={24} />
                 Strategic Thinking
               </h2>
               <div className="grid md:grid-cols-2 gap-6">
-                <Card hover={false}>
+                <div className="v3-card p-6">
                   <div className="flex items-center gap-2 mb-3">
-                    <Target size={18} className="text-[var(--accent-500)]" />
-                    <h3 className="font-semibold">Business Context</h3>
+                    <Target size={18} className="text-[var(--v3-burgundy-light)]" />
+                    <h3 className="font-semibold text-[var(--v3-text-primary)]">Business Context</h3>
                   </div>
-                  <p className="text-[var(--text-secondary)] text-sm">
+                  <p className="text-[var(--v3-text-secondary)] text-sm">
                     {project.strategicContext.businessContext}
                   </p>
-                </Card>
-                <Card hover={false}>
+                </div>
+                <div className="v3-card p-6">
                   <div className="flex items-center gap-2 mb-3">
-                    <Lightbulb size={18} className="text-[var(--secondary-400)]" />
-                    <h3 className="font-semibold">Strategic Approach</h3>
+                    <Lightbulb size={18} className="text-[var(--v3-cream)]" />
+                    <h3 className="font-semibold text-[var(--v3-text-primary)]">Strategic Approach</h3>
                   </div>
-                  <p className="text-[var(--text-secondary)] text-sm">
+                  <p className="text-[var(--v3-text-secondary)] text-sm">
                     {project.strategicContext.strategicApproach}
                   </p>
-                </Card>
+                </div>
               </div>
               <div className="grid md:grid-cols-2 gap-6 mt-6">
-                <Card hover={false}>
+                <div className="v3-card p-6">
                   <div className="flex items-center gap-2 mb-3">
                     <CheckCircle size={18} className="text-green-400" />
-                    <h3 className="font-semibold">Key Strategic Decisions</h3>
+                    <h3 className="font-semibold text-[var(--v3-text-primary)]">Key Strategic Decisions</h3>
                   </div>
                   <ul className="space-y-2">
                     {project.strategicContext.keyDecisions.map((decision, i) => (
-                      <li key={i} className="text-[var(--text-secondary)] text-sm flex items-start gap-2">
-                        <span className="text-[var(--accent-500)] mt-1">•</span>
+                      <li key={i} className="text-[var(--v3-text-secondary)] text-sm flex items-start gap-2">
+                        <span className="text-[var(--v3-burgundy-light)] mt-1">•</span>
                         {decision}
                       </li>
                     ))}
                   </ul>
-                </Card>
-                <Card hover={false}>
+                </div>
+                <div className="v3-card p-6">
                   <div className="flex items-center gap-2 mb-3">
-                    <BookOpen size={18} className="text-[var(--accent-400)]" />
-                    <h3 className="font-semibold">Lessons Learned</h3>
+                    <BookOpen size={18} className="text-[var(--v3-cream)]" />
+                    <h3 className="font-semibold text-[var(--v3-text-primary)]">Lessons Learned</h3>
                   </div>
-                  <p className="text-[var(--text-secondary)] text-sm italic">
+                  <p className="text-[var(--v3-text-secondary)] text-sm italic">
                     &ldquo;{project.strategicContext.lessonsLearned}&rdquo;
                   </p>
-                </Card>
+                </div>
               </div>
             </motion.div>
           )}
@@ -197,12 +194,12 @@ export default function ProjectPage() {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="mb-12"
           >
-            <h2 className="text-2xl font-bold mb-6">Technologies & Skills</h2>
+            <h2 className="text-2xl font-bold mb-6 text-[var(--v3-text-primary)]">Technologies & Skills</h2>
             <div className="flex flex-wrap gap-2">
               {project.technologies.map((tech) => (
-                <Badge key={tech} variant="accent">
+                <span key={tech} className="v3-tag">
                   {tech}
-                </Badge>
+                </span>
               ))}
             </div>
           </motion.div>
@@ -213,45 +210,45 @@ export default function ProjectPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
           >
-            <h2 className="text-2xl font-bold mb-6">Project Collateral</h2>
+            <h2 className="text-2xl font-bold mb-6 text-[var(--v3-text-primary)]">Project Collateral</h2>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {project.collateral.map((item) => (
-                <Card key={item.id} className="overflow-hidden">
+                <div key={item.id} className="v3-card overflow-hidden">
                   {item.type === 'pdf' && (
                     <>
                       <div
-                        className="aspect-[4/3] bg-[var(--primary-700)] flex items-center justify-center cursor-pointer group"
+                        className="aspect-[4/3] bg-[var(--v3-navy-700)] flex items-center justify-center cursor-pointer group"
                         onClick={() => setSelectedPdf(getPdfPath(item.filename))}
                       >
                         <div className="text-center">
                           <FileText
                             size={48}
-                            className="mx-auto mb-2 text-[var(--accent-500)] group-hover:scale-110 transition-transform"
+                            className="mx-auto mb-2 text-[var(--v3-burgundy-light)] group-hover:scale-110 transition-transform"
                           />
-                          <span className="text-sm text-[var(--text-muted)]">
+                          <span className="text-sm text-[var(--v3-text-muted)]">
                             Click to view
                           </span>
                         </div>
                       </div>
                       <div className="p-4">
-                        <h3 className="font-medium mb-2 line-clamp-2">{item.title}</h3>
+                        <h3 className="font-medium mb-2 line-clamp-2 text-[var(--v3-text-primary)]">{item.title}</h3>
                         {item.description && (
-                          <p className="text-sm text-[var(--text-secondary)] mb-3">
+                          <p className="text-sm text-[var(--v3-text-secondary)] mb-3">
                             {item.description}
                           </p>
                         )}
                         <div className="flex items-center gap-2">
                           <button
                             onClick={() => setSelectedPdf(getPdfPath(item.filename))}
-                            className="text-sm text-[var(--accent-500)] hover:underline"
+                            className="text-sm text-[var(--v3-burgundy-light)] hover:underline"
                           >
                             View PDF
                           </button>
-                          <span className="text-[var(--text-muted)]">|</span>
+                          <span className="text-[var(--v3-text-muted)]">|</span>
                           <a
                             href={getPdfPath(item.filename)}
                             download
-                            className="text-sm text-[var(--text-secondary)] hover:text-[var(--accent-500)]"
+                            className="text-sm text-[var(--v3-text-secondary)] hover:text-[var(--v3-cream)]"
                           >
                             <Download size={14} className="inline mr-1" />
                             Download
@@ -263,7 +260,7 @@ export default function ProjectPage() {
 
                   {item.type === 'image' && (
                     <>
-                      <div className="aspect-[4/3] relative bg-[var(--primary-700)]">
+                      <div className="aspect-[4/3] relative bg-[var(--v3-navy-700)]">
                         <Image
                           src={getImagePath(item.filename)}
                           alt={item.title}
@@ -272,13 +269,13 @@ export default function ProjectPage() {
                         />
                       </div>
                       <div className="p-4">
-                        <h3 className="font-medium mb-2">{item.title}</h3>
+                        <h3 className="font-medium mb-2 text-[var(--v3-text-primary)]">{item.title}</h3>
                         {item.description && (
-                          <p className="text-sm text-[var(--text-secondary)] mb-3">
+                          <p className="text-sm text-[var(--v3-text-secondary)] mb-3">
                             {item.description}
                           </p>
                         )}
-                        <div className="flex items-center gap-1 text-sm text-[var(--text-muted)]">
+                        <div className="flex items-center gap-1 text-sm text-[var(--v3-text-muted)]">
                           <ImageIcon size={14} />
                           <span>Image Asset</span>
                         </div>
@@ -288,16 +285,16 @@ export default function ProjectPage() {
 
                   {item.type === 'external' && (
                     <>
-                      <div className="aspect-[4/3] bg-[var(--primary-700)] flex items-center justify-center">
+                      <div className="aspect-[4/3] bg-[var(--v3-navy-700)] flex items-center justify-center">
                         <ExternalLink
                           size={48}
-                          className="text-[var(--secondary-400)]"
+                          className="text-[var(--v3-cream)]"
                         />
                       </div>
                       <div className="p-4">
-                        <h3 className="font-medium mb-2">{item.title}</h3>
+                        <h3 className="font-medium mb-2 text-[var(--v3-text-primary)]">{item.title}</h3>
                         {item.description && (
-                          <p className="text-sm text-[var(--text-secondary)] mb-3">
+                          <p className="text-sm text-[var(--v3-text-secondary)] mb-3">
                             {item.description}
                           </p>
                         )}
@@ -305,7 +302,7 @@ export default function ProjectPage() {
                           href={item.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-sm text-[var(--accent-500)] hover:underline flex items-center gap-1"
+                          className="text-sm text-[var(--v3-burgundy-light)] hover:underline flex items-center gap-1"
                         >
                           View on {item.source}
                           <ExternalLink size={14} />
@@ -313,7 +310,7 @@ export default function ProjectPage() {
                       </div>
                     </>
                   )}
-                </Card>
+                </div>
               ))}
             </div>
           </motion.div>
