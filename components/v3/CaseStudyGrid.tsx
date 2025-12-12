@@ -1,9 +1,9 @@
 'use client';
 
 import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, ChevronDown, ChevronUp } from 'lucide-react';
 
 const caseStudies = [
   {
@@ -20,6 +20,32 @@ const caseStudies = [
     tags: ['HubSpot Enterprise', 'AI Automation', 'ABM'],
   },
   {
+    id: 'streamline-scientific',
+    slug: 'streamline-scientific',
+    company: 'Streamline Scientific',
+    title: 'Urgent Care Market Expansion',
+    description: 'Led market expansion targeting urgent care networks, securing enterprise-level clients with 150+ locations.',
+    metrics: [
+      { value: '150+', label: 'Location Deal' },
+      { value: '3x', label: 'Pipeline Growth' },
+      { value: '35%', label: 'Conversion Lift' },
+    ],
+    tags: ['Content Marketing', 'ABM', 'Enterprise Sales'],
+  },
+  {
+    id: 'lamda-biotech',
+    slug: 'lamda-biotech',
+    company: 'Lamda Biotech',
+    title: 'Post-Acquisition Rebrand & eCommerce',
+    description: 'Directed complete rebrand and website redesign post-acquisition with new eCommerce platform.',
+    metrics: [
+      { value: '25%', label: 'Inquiries Up' },
+      { value: '500+', label: 'Samples Sent' },
+      { value: '15+', label: 'Distributors' },
+    ],
+    tags: ['Brand Strategy', 'eCommerce', 'Product Marketing'],
+  },
+  {
     id: 'crypto-com',
     slug: 'crypto-com',
     company: 'Crypto.com',
@@ -31,6 +57,19 @@ const caseStudies = [
       { value: '50%', label: 'Traffic Increase' },
     ],
     tags: ['Partnership Marketing', 'Paid Media', 'Global Campaigns'],
+  },
+  {
+    id: 'gala-games',
+    slug: 'gala-games',
+    company: 'Gala Games',
+    title: 'Web3 Gaming Community & Partnerships',
+    description: 'Built and managed one of the largest blockchain gaming communities with 100K+ Discord members.',
+    metrics: [
+      { value: '100K+', label: 'Community' },
+      { value: '50%', label: 'Brand Awareness' },
+      { value: '30%', label: 'Engagement' },
+    ],
+    tags: ['Community Management', 'Web3', 'Partnerships'],
   },
 ];
 
@@ -126,10 +165,10 @@ export function CaseStudyGrid() {
           className="text-center"
         >
           <Link
-            href="#career"
+            href="/projects"
             className="inline-flex items-center gap-2 text-[var(--v3-navy-900)] font-semibold hover:text-[var(--v3-burgundy)] transition-colors"
           >
-            <span>View Full Career History</span>
+            <span>View All Case Studies</span>
             <ArrowRight size={18} />
           </Link>
         </motion.div>
