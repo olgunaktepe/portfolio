@@ -101,7 +101,7 @@ export function CaseStudyGrid() {
           {caseStudies.map((study, i) => (
             <Link
               key={study.id}
-              href={`/projects/${study.slug}`}
+              href={`/case-studies/${study.slug}`}
             >
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
@@ -165,7 +165,7 @@ export function CaseStudyGrid() {
           className="text-center"
         >
           <Link
-            href="/projects"
+            href="/case-studies"
             className="inline-flex items-center gap-2 text-[var(--v3-navy-900)] font-semibold hover:text-[var(--v3-burgundy)] transition-colors"
           >
             <span>View All Case Studies</span>

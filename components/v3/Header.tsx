@@ -6,11 +6,11 @@ import { Menu, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const navItems = [
-  { label: 'Impact', href: '#impact' },
-  { label: 'AI', href: '#ai' },
-  { label: 'Career', href: '#career' },
-  { label: 'Work', href: '#work' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Impact', href: '/#impact' },
+  { label: 'AI', href: '/#ai' },
+  { label: 'Career', href: '/#career' },
+  { label: 'Case Studies', href: '/case-studies' },
+  { label: 'Contact', href: '/#contact' },
 ];
 
 export function Header() {

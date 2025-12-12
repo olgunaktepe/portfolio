@@ -3,11 +3,11 @@
 import { useParams } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { ArrowLeft, ExternalLink, FileText, Image as ImageIcon, Download, X, Lightbulb, Target, CheckCircle, BookOpen } from 'lucide-react';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Image from 'next/image';
 import { projects } from '@/data/projects';
 
-export default function ProjectPage() {
+export default function CaseStudyPage() {
   const params = useParams();
   const slug = params.slug as string;
   const project = projects.find((p) => p.slug === slug);
@@ -17,25 +17,14 @@ export default function ProjectPage() {
     return (
       <div className="min-h-screen flex items-center justify-center bg-[var(--v3-navy-900)]">
         <div className="text-center">
-          <h1 className="text-4xl font-bold mb-4 text-[var(--v3-text-primary)]">Project Not Found</h1>
-          <a href="/#work" className="v3-btn-primary inline-flex items-center gap-2">
-            Back to Projects
+          <h1 className="text-4xl font-bold mb-4 text-[var(--v3-text-primary)]">Case Study Not Found</h1>
+          <a href="/case-studies" className="v3-btn-primary inline-flex items-center gap-2">
+            Back to Case Studies
           </a>
         </div>
       </div>
     );
   }
-
-  const getIndustryGradient = (industry: string) => {
-    switch (industry) {
-      case 'web3':
-        return 'from-[var(--v3-navy-700)] to-[var(--v3-navy-800)]';
-      case 'healthcare':
-        return 'from-[var(--v3-navy-700)] to-[var(--v3-navy-800)]';
-      default:
-        return 'from-[var(--v3-navy-800)] to-[var(--v3-navy-700)]';
-    }
-  };
 
   const getPdfPath = (filename: string | undefined) => {
     if (!filename) return '';
@@ -71,18 +60,16 @@ export default function ProjectPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className={`rounded-2xl p-8 md:p-12 mb-12 bg-gradient-to-r ${getIndustryGradient(
-              project.industry
-            )}`}
+            className="rounded-2xl p-8 md:p-12 mb-12 bg-gradient-to-r from-[var(--v3-navy-700)] to-[var(--v3-navy-800)]"
           >
-            <span className="inline-block px-3 py-1 rounded-full bg-white/20 text-white text-sm font-medium mb-4">
+            <span className="inline-block px-3 py-1 rounded-full bg-[var(--v3-cream)]/20 text-[var(--v3-cream)] text-sm font-medium mb-4">
               {project.industry === 'web3' ? 'Web3' : 'Healthcare'}
             </span>
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            <h1 className="text-4xl md:text-5xl font-bold text-[var(--v3-cream)] mb-4">
               {project.company}
             </h1>
-            <p className="text-white/90 text-xl mb-2">{project.title}</p>
-            <p className="text-white/70">{project.role} | {project.period}</p>
+            <p className="text-[var(--v3-text-secondary)] text-xl mb-2">{project.title}</p>
+            <p className="text-[var(--v3-text-muted)]">{project.role} | {project.period}</p>
           </motion.div>
 
           {/* Metrics */}
