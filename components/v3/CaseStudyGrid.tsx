@@ -2,11 +2,13 @@
 
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
+import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 
 const caseStudies = [
   {
     id: 'molecular-designs',
+    slug: 'molecular-designs',
     company: 'Molecular Designs',
     title: 'Healthcare RevOps Transformation',
     description: 'Built revenue operations infrastructure from scratch across a 3-company healthcare portfolio.',
@@ -19,6 +21,7 @@ const caseStudies = [
   },
   {
     id: 'crypto-com',
+    slug: 'crypto-com',
     company: 'Crypto.com',
     title: 'Global Partnership Marketing',
     description: 'Developed enterprise partnership marketing strategies with UFC, NBA, and Formula 1.',
@@ -55,61 +58,81 @@ export function CaseStudyGrid() {
         </motion.div>
 
         {/* Grid */}
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-8 mb-12">
           {caseStudies.map((study, i) => (
-            <motion.div
+            <Link
               key={study.id}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.2 + i * 0.15 }}
-              className="v3-case-card group"
+              href={`/projects/${study.slug}`}
             >
-              {/* Company badge */}
-              <div className="text-sm text-[var(--v3-burgundy-light)] font-semibold uppercase tracking-wider mb-2">
-                {study.company}
-              </div>
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.5, delay: 0.2 + i * 0.15 }}
+                className="v3-case-card group h-full"
+              >
+                {/* Company badge */}
+                <div className="text-sm text-[var(--v3-burgundy-light)] font-semibold uppercase tracking-wider mb-2">
+                  {study.company}
+                </div>
 
-              {/* Title */}
-              <h3 className="text-2xl font-bold text-[var(--v3-text-primary)] mb-4">
-                {study.title}
-              </h3>
+                {/* Title */}
+                <h3 className="text-2xl font-bold text-[var(--v3-text-primary)] mb-4">
+                  {study.title}
+                </h3>
 
-              {/* Description */}
-              <p className="text-[var(--v3-text-secondary)] mb-6 leading-relaxed">
-                {study.description}
-              </p>
+                {/* Description */}
+                <p className="text-[var(--v3-text-secondary)] mb-6 leading-relaxed">
+                  {study.description}
+                </p>
 
-              {/* Metrics */}
-              <div className="grid grid-cols-3 gap-4 mb-6 pb-6 border-b border-[var(--v3-navy-700)]">
-                {study.metrics.map((metric) => (
-                  <div key={metric.label} className="text-center">
-                    <div className="text-2xl font-bold text-[var(--v3-cream)]">
-                      {metric.value}
+                {/* Metrics */}
+                <div className="grid grid-cols-3 gap-4 mb-6 pb-6 border-b border-[var(--v3-navy-700)]">
+                  {study.metrics.map((metric) => (
+                    <div key={metric.label} className="text-center">
+                      <div className="text-2xl font-bold text-[var(--v3-cream)]">
+                        {metric.value}
+                      </div>
+                      <div className="text-xs text-[var(--v3-text-muted)] uppercase tracking-wider">
+                        {metric.label}
+                      </div>
                     </div>
-                    <div className="text-xs text-[var(--v3-text-muted)] uppercase tracking-wider">
-                      {metric.label}
-                    </div>
-                  </div>
-                ))}
-              </div>
+                  ))}
+                </div>
 
-              {/* Tags */}
-              <div className="flex flex-wrap gap-2 mb-6">
-                {study.tags.map((tag) => (
-                  <span key={tag} className="v3-tag">
-                    {tag}
-                  </span>
-                ))}
-              </div>
+                {/* Tags */}
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {study.tags.map((tag) => (
+                    <span key={tag} className="v3-tag">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
 
-              {/* CTA */}
-              <div className="flex items-center gap-2 text-[var(--v3-cream)] font-semibold group-hover:gap-3 transition-all">
-                <span>View Details</span>
-                <ArrowRight size={18} />
-              </div>
-            </motion.div>
+                {/* CTA */}
+                <div className="flex items-center gap-2 text-[var(--v3-cream)] font-semibold group-hover:gap-3 transition-all">
+                  <span>View Details</span>
+                  <ArrowRight size={18} />
+                </div>
+              </motion.div>
+            </Link>
           ))}
         </div>
+
+        {/* View All Button */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          className="text-center"
+        >
+          <Link
+            href="#career"
+            className="inline-flex items-center gap-2 text-[var(--v3-navy-900)] font-semibold hover:text-[var(--v3-burgundy)] transition-colors"
+          >
+            <span>View Full Career History</span>
+            <ArrowRight size={18} />
+          </Link>
+        </motion.div>
       </div>
     </section>
   );
