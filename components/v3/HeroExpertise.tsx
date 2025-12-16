@@ -8,20 +8,20 @@ const expertiseAreas = [
   {
     icon: Target,
     title: 'GTM & Revenue Ops',
-    description: 'Revenue infrastructure from scratch across 3 companies',
-    highlight: '$2M+ pipeline influenced',
+    description: '$2M+ pipeline influenced across 3 companies',
+    highlight: '55% productivity gain',
   },
   {
     icon: Sparkles,
     title: 'AI & Automation',
     description: 'Custom LLM & ML applications that drive real results',
-    highlight: '35% qualification accuracy',
+    highlight: '40% faster turnaround',
   },
   {
     icon: BarChart3,
     title: 'Demand Generation',
-    description: '$2.5M+ annual budgets with full channel ownership',
-    highlight: '$750K closed-won',
+    description: '$2.5M+ annual budgets · $750K closed-won revenue',
+    highlight: '65% lead growth',
   },
 ];
 

@@ -7,6 +7,7 @@ const impactMetrics = [
   { value: 2, prefix: '$', suffix: 'M+', label: 'Pipeline Influenced' },
   { value: 750, prefix: '$', suffix: 'K', label: 'Closed-Won Revenue' },
   { value: 55, suffix: '%', label: 'Sales Productivity' },
+  { value: 65, suffix: '%', label: 'Lead Growth' },
 ];
 
 function AnimatedNumber({
@@ -74,7 +75,7 @@ export function ImpactNumbers() {
         </motion.div>
 
         {/* Metrics Grid */}
-        <div className="grid grid-cols-3 gap-8 mb-12">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
           {impactMetrics.map((metric, i) => (
             <motion.div
               key={metric.label}
