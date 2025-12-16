@@ -4,9 +4,9 @@ import { motion, useInView } from 'framer-motion';
 import { useRef, useEffect, useState } from 'react';
 
 const impactMetrics = [
-  { value: 65, suffix: '%', label: 'Lead Growth' },
+  { value: 2, prefix: '$', suffix: 'M+', label: 'Pipeline Influenced' },
+  { value: 750, prefix: '$', suffix: 'K', label: 'Closed-Won Revenue' },
   { value: 55, suffix: '%', label: 'Sales Productivity' },
-  { value: 5, prefix: '$', suffix: 'M+', label: 'Pipeline Influenced' },
 ];
 
 function AnimatedNumber({
